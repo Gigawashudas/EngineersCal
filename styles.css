@@ -33,7 +33,6 @@ h2 {
   gap: 10px;
   justify-content: center;
   align-items: center;
-  width: clamp(320px, 50vw, 460px);
   margin: 10px auto;
 }
 
@@ -72,7 +71,6 @@ h2 {
 
 .output-container {
   margin-inline: auto;
-  width: clamp(320px, 50vw, 460px);
 }
 
 select {
@@ -87,7 +85,6 @@ select {
   font-size: 2rem;
   /* text-align: center; */
   min-height: 125px;
-  margin-block-start: 20px;
   padding: 15px;
   /* border: 2px solid lightcoral; */
   border-radius: 2px;
@@ -107,18 +104,21 @@ a:visited{
 }
 
 td {
-  width: 50%;
   min-width: 12rem;
   padding: 5px;
   border: 1px solid black;
 }
 
-td:last-of-type {
-  width: 12rem;
-}
-
 .value {
   text-align: right;
+}
+
+.error-msg {
+  color: red;
+  font-weight: bold;
+  margin-top: 18px;
+  text-align: center;
+  min-height: 18px;
 }
 
 @media screen and (min-width: 36em) {
