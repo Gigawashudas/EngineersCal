@@ -4,6 +4,8 @@ const result = document.getElementById("result");
 const conversionType = document.getElementById("input-type");
 const errorDisplay = document.getElementById("error-msg"); // New: Error message container
 
+
+
 const decimalToBinary = (input) => {
   if (input === 0 || input === 1) {
     return String(input);
@@ -81,7 +83,7 @@ const checkUserInput = () => {
     inputInt = inputValue;
     result.innerHTML = `
       <tr><td>Decimal</td><td class="value">${binaryToDecimal(inputInt)}</td></tr>
-      <tr><td>Binary</td><td class="value">${formatBinary(inputInt)}</td></tr>
+      <tr><td>Binary</td><td class="value">${(inputInt)}</td></tr>
       <tr><td>Octal</td><td class="value">${binaryToOctal(inputInt)}</td></tr>
       <tr><td>Hexadecimal</td><td class="value">${binaryToHexadecimal(inputInt)}</td></tr>
     `;
@@ -93,7 +95,7 @@ const checkUserInput = () => {
     }
     result.innerHTML = `
       <tr><td>Decimal</td><td class="value">${octalToDecimal(inputValue)}</td></tr>
-      <tr><td>Binary</td><td class="value">${formatBinary(octalToBinary(inputValue))}</td></tr>
+      <tr><td>Binary</td><td class="value">${(octalToBinary(inputValue))}</td></tr>
       <tr><td>Octal</td><td class="value">${inputValue}</td></tr>
       <tr><td>Hexadecimal</td><td class="value">${octalToHexadecimal(inputValue)}</td></tr>
     `;
@@ -105,7 +107,7 @@ const checkUserInput = () => {
     }
     result.innerHTML = `
       <tr><td>Decimal</td><td class="value">${hexadecimalToDecimal(inputValue)}</td></tr>
-      <tr><td>Binary</td><td class="value">${formatBinary(hexadecimalToBinary(inputValue))}</td></tr>
+      <tr><td>Binary</td><td class="value">${(hexadecimalToBinary(inputValue))}</td></tr>
       <tr><td>Octal</td><td class="value">${hexadecimalToOctal(inputValue)}</td></tr>
       <tr><td>Hexadecimal</td><td class="value">${inputValue.toUpperCase()}</td></tr>
     `;
