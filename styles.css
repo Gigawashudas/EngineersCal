@@ -9,7 +9,7 @@ body {
   flex-direction: column;
   align-items: center;
   font-family: Serif;
-  font-size: 1.125rem;
+  font-size: 1.5rem;
   color: rgb(0, 0, 0);
   background-color: rgb(255, 255, 255);
   padding: 0 4px;
@@ -75,6 +75,7 @@ h2 {
 }
 
 select {
+    font-size: large;
     height: 2rem;
     width: auto;
 }
@@ -83,7 +84,7 @@ select {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
   /* text-align: center; */
   min-height: 125px;
   padding: 15px;
