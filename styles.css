@@ -103,13 +103,18 @@ a{
 }
 a:visited{
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 4, 255);
 }
 
 td {
   width: 50%;
+  min-width: 12rem;
   padding: 5px;
   border: 1px solid black;
+}
+
+td:last-of-type {
+  width: 12rem;
 }
 
 .value {

@@ -61,72 +61,67 @@ const hexadecimalToOctal = (input) => {
 };
 
 const checkUserInput = () => {
-    const inputValue = numberInput.value.trim();
-    const conversion = conversionType.value;
-    const inputInt = parseInt(inputValue);
-  
-    if (!conversion) {
-      alert("Please select an input type");
-      return;
-    } else if (!inputValue) {
-      alert("Please provide a number.");
-      return;
-    }
-  
-    if (conversion === "decimal") {
-      if (isNaN(inputInt) || inputInt < 0) {
-        alert("Please provide a valid decimal number greater than or equal to 0.");
-        return;
-      }
-      result.innerHTML = `
-                            <tr>
-                              <td>Binary</td>
-                              <td class="value">${decimalToBinary(inputInt)}</td>
-                            </tr>
-                            <tr>
-                              <td>Octal</td>
-                              <td class="value">${decimalToOctal(inputInt)}</td>
-                            </tr>
-                            <tr>
-                             <td>Hexadecimal</td>
-                              <td class="value">${decimalToHexadecimal(inputInt)}</td>
-                          `;
-    } else if (conversion === "binary") {
-      if (!/^[01]+$/.test(inputValue)) {
-        alert("Please provide a valid binary number (only 0s and 1s).");
-        return;
-      }
-      result.innerHTML = `
-                            <tr>
-                              <td>Decimal</td>
-                              <td class="value">${binaryToDecimal(inputInt)}</td>
-                            </tr>
-                            <tr>
-                              <td>Octal</td>
-                              <td class="value">${binaryToOctal(inputInt)}</td>
-                            </tr>
-                            <tr>
-                             <td>Hexadecimal</td>
-                              <td class="value">${binaryToHexadecimal(inputInt)}</td>
-                          `;
-    } else if (conversion === "octal") {
-      if (!/^[0-7]+$/.test(inputValue)) {
-        alert("Please provide a valid octal number (only 0-7).");
-        return;
-      }
-      const decimal = octalToDecimal(inputValue);
-      result.textContent = `Decimal: ${decimal} | Binary: ${octalToBinary(inputValue)} | Hexadecimal: ${octalToHexadecimal(inputValue)}`;
-    } else if (conversion === "hex") {
-      if (!/^[0-9A-Fa-f]+$/.test(inputValue)) {
-        alert("Please provide a valid hexadecimal number (only 0-9 and A-F).");
-        return;
-      }
-      const decimal = hexadecimalToDecimal(inputValue);
-      result.textContent = `Decimal: ${decimal} | Binary: ${hexadecimalToBinary(inputValue)} | Octal: ${hexadecimalToOctal(inputValue)}`;
-    }
-  };
-  
+  const inputValue = numberInput.value.trim();
+  const conversion = conversionType.value;
 
+  if (!conversion) {
+    alert("Please select an input type");
+    return;
+  } else if (!inputValue) {
+    alert("Please provide a number.");
+    return;
+  }
+
+  if (conversion === "decimal") {
+    const inputInt = parseInt(inputValue, 10);
+    if (isNaN(inputInt) || inputInt < 0) {
+      alert("Please provide a valid decimal number greater than or equal to 0.");
+      return;
+    }
+    result.innerHTML = `
+      <tr><td>Decimal</td><td class="value">${inputInt}</td></tr>
+      <tr><td>Binary</td><td class="value">${decimalToBinary(inputInt)}</td></tr>
+      <tr><td>Octal</td><td class="value">${decimalToOctal(inputInt)}</td></tr>
+      <tr><td>Hexadecimal</td><td class="value">${decimalToHexadecimal(inputInt)}</td></tr>
+    `;
+  } else if (conversion === "binary") {
+    if (!/^[01]+$/.test(inputValue)) {
+      alert("Please provide a valid binary number (only 0s and 1s).");
+      return;
+    }
+    result.innerHTML = `
+      <tr><td>Decimal</td><td class="value">${binaryToDecimal(inputValue)}</td></tr>
+      <tr><td>Binary</td><td class="value">${inputValue}</td></tr>
+      <tr><td>Octal</td><td class="value">${binaryToOctal(inputValue)}</td></tr>
+      <tr><td>Hexadecimal</td><td class="value">${binaryToHexadecimal(inputValue)}</td></tr>
+    `;
+  } else if (conversion === "octal") {
+    if (!/^[0-7]+$/.test(inputValue)) {
+      alert("Please provide a valid octal number (only 0-7).");
+      return;
+    }
+    result.innerHTML = `
+      <tr><td>Decimal</td><td class="value">${octalToDecimal(inputValue)}</td></tr>
+      <tr><td>Binary</td><td class="value">${octalToBinary(inputValue)}</td></tr>
+      <tr><td>Octal</td><td class="value">${inputValue}</td></tr>
+      <tr><td>Hexadecimal</td><td class="value">${octalToHexadecimal(inputValue)}</td></tr>
+    `;
+  } else if (conversion === "hex") {
+    if (!/^[0-9A-Fa-f]+$/.test(inputValue)) {
+      alert("Please provide a valid hexadecimal number (only 0-9 and A-F).");
+      return;
+    }
+    const upperInput = inputValue.toUpperCase();
+    result.innerHTML = `
+      <tr><td>Decimal</td><td class="value">${hexadecimalToDecimal(upperInput)}</td></tr>
+      <tr><td>Binary</td><td class="value">${hexadecimalToBinary(upperInput)}</td></tr>
+      <tr><td>Octal</td><td class="value">${hexadecimalToOctal(upperInput)}</td></tr>
+      <tr><td>Hexadecimal</td><td class="value">${upperInput}</td></tr>
+    `;
+  }
+};
+
+  
 convertBtn.addEventListener("click", checkUserInput);
 
 numberInput.addEventListener("keydown", (e) => {
