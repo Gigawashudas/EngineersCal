@@ -70,10 +70,6 @@ h2 {
   width: 100%;
 }
 
-.number-input:invalid {
-  border-color: rgb(0, 255, 8);
-}
-
 .output-container {
   margin-inline: auto;
   width: clamp(320px, 50vw, 460px);
