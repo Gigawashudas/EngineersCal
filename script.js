@@ -96,8 +96,19 @@ const checkUserInput = () => {
         alert("Please provide a valid binary number (only 0s and 1s).");
         return;
       }
-      const decimal = binaryToDecimal(inputValue);
-      result.textContent = `Decimal: ${decimal} | Octal: ${binaryToOctal(inputValue)} | Hexadecimal: ${binaryToHexadecimal(inputValue)}`;
+      result.innerHTML = `
+                            <tr>
+                              <td>Decimal</td>
+                              <td class="value">${binaryToDecimal(inputInt)}</td>
+                            </tr>
+                            <tr>
+                              <td>Octal</td>
+                              <td class="value">${binaryToOctal(inputInt)}</td>
+                            </tr>
+                            <tr>
+                             <td>Hexadecimal</td>
+                              <td class="value">${binaryToHexadecimal(inputInt)}</td>
+                          `;
     } else if (conversion === "octal") {
       if (!/^[0-7]+$/.test(inputValue)) {
         alert("Please provide a valid octal number (only 0-7).");
