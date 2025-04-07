@@ -51,6 +51,7 @@ h2 {
   border-radius: 2px;
   cursor: pointer;
   color: aliceblue;
+  transition: all 0.3s ease;
 }
 
 .convert-btn:hover {
@@ -82,7 +83,7 @@ select {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   /* text-align: center; */
   min-height: 125px;
   padding: 15px;
@@ -107,10 +108,14 @@ td {
   min-width: 12rem;
   padding: 5px;
   border: 1px solid black;
+  overflow: auto;
 }
 
-.value {
+td.value {
   text-align: right;
+  word-break: break-word;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 1000;
 }
 
 .error-msg {
